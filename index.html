@@ -1,118 +1,190 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <title>Mior's Resume</title>
     <style>
-      .hero.is-custom-height {
+        .hero.is-custom-height {
             height: 320px; /* Adjust this value to set the desired height */
         }
-      .is-custom {
-          width: 220px;
-          height: 220px;
-      }
-  </style>
+        .is-custom {
+            width: 220px;
+            height: 220px;
+        }
+        .no-spacing {
+            margin: 0;
+        }
+        .clickable-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+        .clickable-link:hover {
+            color: #FFD700; /* Change to a contrasting color for hover effect */
+            text-decoration: underline;
+        }
+/* Custom CSS to center align the button */
+.navbar {
+            justify-content: center;
+        }
+        .navbar-end {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar-item {
+            margin-left: auto; /* Move the contents to the right */
+        }
+
+        .custom-button {
+            background-color: #38969C;
+            color: #FFFFFF; /* Set text color to ensure contrast */
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Mior</strong>
-                        </a>
-                        <a class="button is-light">
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section style="border-radius: 0.75rem; background-color: #38969C; width: 100%; margin: 0; max-width: none;">
-            <section class="hero is-success is-custom-height" style="background-color: #38969C;">
-                <div class="hero-body">
-                    <div class="columns is-vcentered">
-                        <div class="column is-one-third">
-                           <figure class="image is-custom">
-                                <img style="border-radius: 0.75rem;" src="profile.png" alt="Mior Muhammad Aiman bin Razali">
-                            </figure>
+<header>
+    <nav class="navbar">
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <div class="dropdown is-right" id="contents-dropdown">
+                        <div class="dropdown-trigger">
+                            <button class="button is-primary custom-button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                <span>Contents</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
                         </div>
-                        <div class="column">
-                            <div class="content">
-                                <p class="title" style="color: #FFFFFF;">Mior Muhammad Aiman bin Razali</p>
-                                <p class="subtitle" style="color: #FFFFFF;">Data Professional</p>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                <a href="#profile-section" class="dropdown-item">Profile</a>
+                                <a href="#education-section" class="dropdown-item">Education</a>
+                                <a href="#software-skills-section" class="dropdown-item">Software Skills</a>
+                                <a href="#work-experience-section" class="dropdown-item">Work Experience</a>
+                                <a href="#personal-project-section" class="dropdown-item">Personal Project</a>
+                                <a href="#co-curricular-section" class="dropdown-item">Co-Curricular Involvement</a>
+                                <a href="#reference-section" class="dropdown-item">Reference</a>
                             </div>
                         </div>
                     </div>
+                    <a href="https://wa.me/60173722619" class="button is-light custom-link">Contact Me</a>
                 </div>
-            </section>
-        </section>
-    </main>
-    
+            </div>
+        </div>
+    </nav>
+</header>
     
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // Get all dropdown triggers
+        var dropdowns = document.querySelectorAll('.dropdown');
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.dropdown')) {
+                closeDropdowns();
+            }
+        });
+
+        // Toggle dropdown visibility
+        dropdowns.forEach(function (dropdown) {
+            var trigger = dropdown.querySelector('.dropdown-trigger');
+            trigger.addEventListener('click', function () {
+                dropdown.classList.toggle('is-active');
+            });
+        });
+
+        // Function to close all dropdowns
+        function closeDropdowns() {
+            dropdowns.forEach(function (dropdown) {
+                dropdown.classList.remove('is-active');
+            });
+        }
+
+    });
+</script>
+
+<main>
+    <section style="border-radius: 0.75rem; background-color: #38969C; width: 100%; margin: 0; max-width: none;">
+        <section class="hero is-success is-custom-height" style="background-color: #38969C;">
+            <div class="hero-body">
+                <div class="content" style="display: flex; align-items: center;">
+                    <div style="flex: 0 0 auto;">
+                        <figure class="image is-custom">
+                            <img style="border-radius: 0.75rem;" src="profile.png" alt="Mior Muhammad Aiman bin Razali">
+                        </figure>
+                    </div>
+                    <div style="flex: 1; margin-left: 20px;">
+                        <p class="title" style="color: #FFFFFF;">Mior Muhammad Aiman bin Razali</p>
+                        <p class="subtitle" style="color: #FFFFFF;">Data Professional (Data Analyst, Data Programmer, Data Engineer, Power BI Developer)</p>
+                        <p class="subtitle no-spacing" style="color: #FFFFFF; margin: 0;"> Kuala Lumpur, WPKL, 53100</p>
+                        <p class="subtitle no-spacing" style="color: #FFFFFF; margin: 0;">
+                            <a href="https://wa.me/60173722619" class="clickable-link">+6017-3722619</a>
+                        </p>
+                        <p class="subtitle no-spacing" style="color: #FFFFFF; margin: 0;">
+                            <a href="mailto:mioraiman007@gmail.com" class="clickable-link">mioraiman007@gmail.com</a>
+                        </p>
+                        <p class="subtitle no-spacing" style="color: #FFFFFF; margin: 0;">
+                            <a href="https://www.linkedin.com/in/mioraiman" class="clickable-link">www.linkedin.com/in/mioraiman</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</main>
+
     
-        
-   
+    
             <!-- Profile Section -->
-            <div class="content is-normal mx-5 mt-5">
+            <section id="profile-section"  class="content is-normal mx-5 mt-3">
                 <p style="font-weight: 900; color: #38969C; font-size: 2rem; margin-bottom: 0.5rem;">Profile</p>
                 <p style="text-align: justify; margin-bottom: 0;">Mechanical engineering graduate with a passion for data analytics. I possess comprehensive expertise in end-to-end ETL processes. From efficiently extracting data from diverse sources to constructing robust data models and data ingestion pipelines into databases, I excel in semi-automating tasks and ensuring data integrity. Additionally, I have a talent for designing intuitive dashboards that simplify complex data modeling in databases, facilitating interactive and user-friendly visualization. With a commitment for continuous self-improvement, I am poised to make impactful contributions to any project I am involved in.</p>
-            </div>
+            </section>
 
         <!-- Line Separator -->
-        <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C;">
+        <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C; margin-bottom: 0rem; margin-top: 0rem;">
 
 
 
 <!-- Education Section -->
 
-<div class="content is-normal mx-5 mt-3" style="margin-top: 1rem; margin-bottom: 0rem;">
-    <p style="font-weight: 900; color: #38969C; font-size: 2rem; margin-bottom: 0.5rem;">Education</p>
-    <p style="font-weight: 900; color: black; font-size: 1.25rem; margin-bottom: 0.5rem;">Universiti Malaya (UM)</p>
-    <ul style="list-style-type: none; margin-left: 1rem; padding-left: 0; margin-top: 0rem;">
-        <li>
-            <ul style="list-style-type: none; margin-left: 1rem; padding-left: 0; margin-top: 0rem;">
-                <li style="font-weight: bold; color: #7030A0;">&#8226; Bachelor of Mechanical Engineering</li>
-                    <ul style="list-style-type: none; margin-left: 1rem; padding-left: 0;">
-                        <li>&#9702; Duration: October 2017 – September 2021 (4 Years)</li>
-                        <li>&#9702; CGPA: 3.40/4.00</li>
-                    </ul>
-                </li>
+<section id="education-section"  class="content is-normal mx-5 mt-3">
+    <p style="font-weight: 900; color: #38969C; font-size: 2rem; margin-bottom: 1rem; margin-top: 0rem;">Education</p>
+    <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem;  margin-bottom: 0rem; margin-top: 0rem; ">Universiti Malaya (UM)</p>
+    <ul class="education-list">
+        <li><strong><span style="text-align: justify;font-weight: 900; color: #7030A0; font-size: 1.25rem; margin-bottom: 0rem;">Bachelor of Mechanical Engineering</span></strong></li>
+            <ul class="education-list">
+                <li>Duration: October 2017 – September 2021 (4 Years)</li>
+                <li>CGPA: 3.40/4.00</li>
             </ul>
         </li>
     </ul>
-</div>
 
-<div class="content is-normal mx-5 mt-3" style="margin-top: 0rem;">
-    <p style="font-weight: 900; color: black; font-size: 1.25rem; margin-bottom: 0.5rem;">Center of Applied Data Science (CADS)</p>
-    <ul style="list-style-type: none; margin-left: 1rem; padding-left: 0; margin-top: 0rem;">
-        <li>
-            <ul style="list-style-type: none; margin-left: 1rem; padding-left: 0; margin-top: 0rem;">
-                <li style="font-weight: bold; color: #7030A0;">&#8226; Data Star Accelerator (Junior Data Scientist)</li>
-                    <ul style="list-style-type: none; margin-left: 1rem; padding-left: 0;">
-                        <li>&#9702; Duration: November 2022 – January 2023 (3 Months)</li>
-                    </ul>
-                </li>
+    <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem; margin-top: 0rem;">Center of Applied Data Science (CADS)</p>
+    <ul class="education-list">
+        <li><strong><span style="text-align: justify;font-weight: 900; color: #7030A0; font-size: 1.25rem; margin-bottom: 0rem;">Data Star Accelerator (Junior Data Scientist)</span></strong></li>
+            <ul class="education-list">
+                <li>Duration: November 2022 – January 2023 (3 Months)</li>
             </ul>
         </li>
     </ul>
-</div>
+</section>
+
 
     <!-- Line Separator -->
-    <hr class="mx-5" style="border: none; height: 1px; background-color:#38969C;">
+    <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C; margin-bottom: 0rem; margin-top: 0rem;">
 
             <!-- Software Skills Section -->
-            <div class="content is-normal mx-5 mt-5">
-                <p style="font-weight: 900; color: #38969C; font-size: 2rem; margin-bottom: 0rem;">Software Skills</p>
+            <section id="software-skills-section"  class="content is-normal mx-5 mt-3">
+                <p style="font-weight: 900; color: #38969C; font-size: 2rem; margin-top: 0rem; margin-bottom: 0rem;">Software Skills</p>
                 <ul>
                     <li><p><strong><span style="text-align: justify;font-weight: 900; color: #000000;">Microsoft Office Software –</span></strong> Power Automate, Words, Excel, PowerPoint, Outlook</li>
-                    <li><p><strong><span style="text-align: justify;font-weight: 900; color: #000000;">Programming Languages –</span></strong> R, Python, SQL, M Code, VBA, (Proficient with AI Support)</li>
+                    <li><p><strong><span style="text-align: justify;font-weight: 900; color: #000000;">Programming Languages –</span></strong> R, Python, SQL, M Code, VBA, HTML (Proficient with AI Support)</li>
                     <li><p><strong><span style="text-align: justify;font-weight: 900; color: #000000;">Database/ Database Editor –</strong> Microsoft SQL Server (MSSQL), MySQL, DBeaver</li>
                     <li><p><strong><span style="text-align: justify;font-weight: 900; color: #000000;">ETL Tools/ Platform –</span></strong> Talend, Pentaho, Power Automate-AI Builder, ABBYY FineReader</li>
                     <li><p><strong><span style="text-align: justify;font-weight: 900; color: #000000;">Visualization Software –</span></strong> Power BI, Google Data Studio, Tableau</li>
@@ -120,69 +192,67 @@
                     <li><p><strong><span style="text-align: justify;font-weight: 900; color: #000000;">Model/Data Management Platform –</span></strong> Model Catalogue (MC), Open Subsurface Data Universe (OSDU)</li>
                     <li><p><strong><span style="text-align: justify;font-weight: 900; color: #000000;">Creative Design Software –</span></strong> Adobe Photoshop, Adobe After Effect, DaVinci Resolve</li>
                 </ul>
-            </div>
+        </section>
 
-    <!-- Line Separator -->
-    <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C;">
+     <!-- Line Separator -->
+     <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C; margin-bottom: 0rem; margin-top: 0rem;">
         
             <!-- Work Experience Section -->
-            <div class="content is-normal mx-5 mt-5">
+            <section id="work-experience-section"  class="content is-normal mx-5 mt-3">
                 <p style="font-weight: 900; color: #38969C; font-size: 2rem; margin-bottom: 1rem;">Work Experience</p>
-                <div class="resume-section">
+               
                     <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">Data Analyst/ Data Engineer/ Power BI Developer/ Data Scientist</p>
                     <p style="margin-bottom: 5px;">
                         <strong><span style="text-align: justify;font-weight: 900; color: #7030A0; font-size: 1.25rem; margin-bottom: 0rem;">Advanced Engineering & Management for Energy Solutions (AEM Enersol)</span></strong> – IT/ Oil & Gas Industry
                     </p>
-                            <p style="margin-bottom: 0;">May 2023 – Present</p>
-                </div>
+                            <p style="margin-bottom: 2rem;">May 2023 – Present</p>
+           
 
-                <div class="content is-normal mx-5 mt-5">
+                <section class="content is-normal mx-5 mt-3">
                     <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">SDRH-IA Data Liberalization (Argentina)</p>
                     <p style="text-align: justify;margin-bottom: 0;">May 2024 – Ongoing</p>
                     <p style="text-align: justify;margin-bottom: 0;">Developing end-to-end pipelines for semi-automated metadata extraction, language translation and Power BI Creation.</p>
                     <ul>
                         <li style="text-align: justify;">Engineered a comprehensive, semi-automated metadata extraction pipeline utilizing a variety of technology stacks (R, Python, VBA, PowerShell, WinRAR) to process and extract metadata from over 9,000 files. Key components of the pipeline included:</li>
-                            <div class="content is-normal mx-0 mt-0" style="margin-bottom: 0; margin-top: 0;">
-                                <ul style="list-style-type: none; padding-left: 0;margin-bottom: 0; margin-top: 0;">
-                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Recursively extracting files from ZIP, ZIPX, and RAR archives.</li>
-                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Extracting metadata of the files, including file format, file path, size (bytes), number of pages, language, date created and text content.</li>
-                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Splitting pages and sheets for PDFs, Word documents, PowerPoint presentations, and Excel files to ensure each file contains only one page or sheet.</li>
-                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Automatically identifying duplicate and unique files based on file name variations, file size, and text content.</li>
-                                </ul>
-                            </div>                    
+                        
+                            <ul class="education-list" style="text-align: justify; margin-bottom: 0; margin-top: 0;">
+                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Recursively extracting files from ZIP, ZIPX, and RAR archives.</li>
+                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Extracting metadata of the files, including file format, file path, size (bytes), number of pages, language, date created and text content.</li>
+                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Splitting pages and sheets for PDFs, Word documents, PowerPoint presentations, and Excel files to ensure each file contains only one page or sheet.</li>
+                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Automatically identifying duplicate and unique files based on file name variations, file size, and text content.</li>
+                            </ul>
+                                
                         <li style="text-align: justify;margin-top: 0;">Conducted research and integrated generative AI capabilities into the pipeline by utilizing the Llama3:8b model to translate 10,000 Spanish pages into English.</li>
                         <li style="text-align: justify;margin-top: 0;">Developed an interactive Power BI dashboard to visualize pipeline outcomes, incorporating hyperlinks for seamless navigation and comprehensive data exploration.</li>
                         <li style="text-align: justify;margin-top: 0;">Established a collaborative team working environment, facilitated by the preparation of references, development of assessment workflows, and provisioning of necessary data and access for data analysts to conduct further assessments.</li>
                     </ul>
-                </div>
+                </section>
 
-                <div class="content is-normal mx-5 mt-5">
+                <section class="content is-normal mx-5 mt-3">
                     <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">Xtralisis</p>
                     <p style="text-align: justify;margin-bottom: 0;">March 2024 – May 2024</p>
                     <p style="text-align: justify;margin-bottom: 0;">Producing APIs to be passed to backend developers for web app development.</p>
                     <ul>
-                        <li style="text-align: justify;margin-top: 0;"">Developed Python scripts that received string text as an input and return the text language, confidence level and translated text to English as an API output.</li>                 
+                        <li style="text-align: justify;margin-top: 0;">Developed Python scripts that received string text as an input and return the text language, confidence level and translated text to English as an API output.</li>                 
                         <li style="text-align: justify;margin-top: 0;">Developed Python scripts to split PDF files into individual pages and convert each page into an image.</li>
                   </ul>
-                </div>
+                </section>
 
-                <div class="content is-normal mx-5 mt-5">
+                <section class="content is-normal mx-5 mt-3">
                     <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">AEM Plus</p>
                     <p style="text-align: justify;margin-bottom: 0;">February 2024 – April 2024</p>
                     <p style="text-align: justify;margin-bottom: 0;">Designing visualizations using Power BI.</p>
                     <ul>
                         <li style="text-align: justify;">Developed Power BI dashboards to address various management and staff needs:</li>                 
-                        <div class="content is-normal mx-0 mt-0" style="margin-bottom: 0; margin-top: 0;">
-                            <ul style="list-style-type: none; padding-left: 0;margin-bottom: 0; margin-top: 0;">
-                                <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Implemented dashboards for Human Resources to monitor individual projects and tasks, enabling automatic monthly and yearly report generation.</li>
-                                <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Designed dashboards for department heads to review project and task histories, emphasis on ongoing tasks.</li>
-                                <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Created interfaces for staff members to efficiently access their past and ongoing tasks through tables and calendars.</li>
+                            <ul class="education-list" style="text-align: justify; margin-bottom: 0; margin-top: 0;">
+                                <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Implemented dashboards for Human Resources to monitor individual projects and tasks, enabling automatic monthly and yearly report generation.</li>
+                                <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Designed dashboards for department heads to review project and task histories, emphasis on ongoing tasks.</li>
+                                <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Created interfaces for staff members to efficiently access their past and ongoing tasks through tables and calendars.</li>
                             </ul>
-                        </div> 
-                  </ul>
-                </div>
+                    </ul>
+                </section>
                 
-                <div class="content is-normal mx-5 mt-5">
+                <section class="content is-normal mx-5 mt-3">
                     <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">WELL SITE (Well System Integration Engineering)</p>
                     <p style="text-align: justify;margin-bottom: 0;">January 2024 – March 2024</p>
                     <p style="text-align: justify;margin-bottom: 0;">Creating data model in a database, extracting data from reports and ingesting the data into the created database.</p>
@@ -192,10 +262,10 @@
                         <li style="text-align: justify;margin-top: 0;">Orchestrated data ingestion using Talend to load the extracted data into the created database tables.</li>
                         <li style="text-align: justify;margin-top: 0;">Prepared training datasets for NLP-based machine learning (ML), which were used to give suggestions based on user input.</li>
                      </ul>
-                </div>
+                </section>
 
 
-                <div class="content is-normal mx-5 mt-5">
+                <section class="content is-normal mx-5 mt-3">
                     <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">WellSight 360</p>
                     <p style="text-align: justify;margin-bottom: 0;">November 2023 – March 2024</p>
                     <p style="text-align: justify;margin-bottom: 0;">Extracting data from reports and ingesting them into a database.</p>
@@ -205,11 +275,11 @@
                         <li style="text-align: justify;margin-top: 0;">Orchestrated data ingestion using Talend by loading data into the created tables through pulling and integrating data from various source tables from another server.</li>
                         <li style="text-align: justify;margin-top: 0;">Created various views in MSSQL for faster data access and query optimization.</li>
                      </ul>
-                </div>
+                </section>
 
 
 
-                <div class="content is-normal mx-5 mt-5">
+                <section class="content is-normal mx-5 mt-3">
                     <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">SDRH-International Asset Data Liberalization/ SDRH-G&G Data Extraction/ SDRH-CCS Data Extraction</p>
                     <p style="text-align: justify;margin-bottom: 0;">May 2023 – October 2023</p>
                     <p style="text-align: justify;margin-bottom: 0;">Extracting data from reports and ingesting them into predefined templates.</p>
@@ -219,21 +289,21 @@
                         <li style="text-align: justify;margin-top: 0;">Executed data extraction on highlighted pages using ABBYY software for manual extraction and Power Automate for assisted AI extraction. The data were extracted based on more than 200 templates provided by the client.</li>
                         <li style="text-align: justify;margin-top: 0;">Conducted quality control, cleanup, and data standardization procedures to ensure the integrity and compliance of the extracted data with the provided templates.</li>
                      </ul>
-                </div>
-            </div>
+                </section>
+            </section>
 
     <!-- Line Separator -->
-    <hr class="mx-5" style="border: none; height: 1px; background-color: #DDDDDD">
+    <hr class="mx-5" style="border: none; height: 1px; background-color: #DDDDDD; margin-bottom: 0rem; margin-top: 0rem;">
 
-                <div class="content is-normal mx-5 mt-5">
-                        <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">Petroleum Engineering Data Analyst (PROTÉGÉ - GEES)</p>
+                <section class="content is-normal mx-5 mt-3">
+                        <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem;  margin-bottom: 0; margin-top: 0;">Petroleum Engineering Data Analyst (PROTÉGÉ - GEES)</p>
                         <p style="margin-bottom: 5px;">
                             <strong><span style="text-align: justify;font-weight: 900; color: #7030A0; font-size: 1.25rem; margin-bottom: 0rem;">Petroleum Nasional Berhad (PETRONAS)</span></strong> – Oil & Gas Industry
                         </p>
-                                <p style="margin-bottom: 0;">May 2022 – May 2023 (1 year)</p>
+                                <p style="margin-bottom: 2rem;">May 2022 – May 2023 (1 year)</p>
                     
     
-                    <div class="content is-normal mx-5 mt-5">
+                    <section class="content is-normal mx-5 mt-3">
                         <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">Model Management</p>
                         <p style="text-align: justify;margin-bottom: 0;">Involved in collecting, assessing, and loading oil & gas models into model storage software.</p>
                         <ul>
@@ -243,18 +313,18 @@
                             <li style="text-align: justify;margin-top: 0;">Provided input and advice on suitable naming conventions for upcoming models to ensure standardized naming.</li>
                             <li style="text-align: justify;margin-top: 0;">Conducted training sessions for new executives on the utilization of MC for future model loading purposes.</li>
                         </ul>
-                    </div>
+                    </section>
 
-                    <div class="content is-normal mx-5 mt-5">
+                    <section class="content is-normal mx-5 mt-3">
                         <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">SDRH-International Asset Data Liberalization</p>
                         <p style="text-align: justify;margin-bottom: 0;">Involved in performing data inventory on various SharePoint storage.</p>
                         <ul>
                             <li style="text-align: justify;margin-top: 0;">Performed data inventory for 3 data storages which consist of over 25,000 files and summarized the findings based on several attributes namely file type, file count, file size and file path for each storage.</li>
                         </ul>
-                    </div>
+                    </section>
     
 
-                    <div class="content is-normal mx-5 mt-5">
+                    <section class="content is-normal mx-5 mt-3">
                         <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">SDRH-Sand Data Extraction</p>
                         <p style="text-align: justify;margin-bottom: 0;">Involved in preparation of several datasets to be ingested into Open Subsurface Data Universe (OSDU).</p>
                         <ul>
@@ -263,190 +333,173 @@
                             <li style="text-align: justify;margin-top: 0;">Developed 3 types of JSON scripts: schema (table), view (UI), and facet (filter), which were necessary for any data ingestion into OSDU and conducted pilot data ingestion into OSDU using sample dataset.</li>
                             <li style="text-align: justify;margin-top: 0;">Conducted training sessions for new executives on the utilization of OSDU for future data ingestion purposes.</li>
                         </ul>
-                    </div>
-                </div>
+                    </section>
+                </section>
 
     <!-- Line Separator -->
-    <hr class="mx-5" style="border: none; height: 1px; background-color: #DDDDDD">
+    <hr class="mx-5" style="border: none; height: 1px; background-color: #DDDDDD; margin-bottom: 0rem; margin-top: 0rem;">
           
-                <div class="content is-normal mx-5 mt-5">
+            <section class="content is-normal mx-5 mt-3">
                     <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">Facility Engineer Intern (Degree Internship)</p>
                     <p style="margin-bottom: 5px;">
                         <strong><span style="text-align: justify;font-weight: 900; color: #7030A0; font-size: 1.25rem; margin-bottom: 0rem;">SEMASA Services (SSRV)</span></strong> – Total Integrated Facility Management Industry
                     </p>
-                            <p style="margin-bottom: 0;">June 2020 – September 2020 (3 months)</p>
+                            <p style="margin-bottom: 2rem;">June 2020 – September 2020 (3 months)</p>
 
 
-                            <div class="content is-normal mx-5 mt-5">
+                            <section class="content is-normal mx-5 mt-3">
                               <ul>
                                     <li style="text-align: justify;margin-top: 0;">Undergone internship as Facility Engineer Intern under Tabung Haji 1 Central Tower facility management team.</li>
                                     <li style="text-align: justify;margin-top: 0;">Ensured the functionality, comfort, safety and efficiency of the building and its systems in accordance with ISO 9001: Quality Management System, ISO 41001: Facility Management and NIOSH Standards.</li>
                                     <li style="text-align: justify;margin-top: 0;">Oversaw the maintenance work done on the building systems namely Power Distribution System, Plumbing System, Fire Protection System, Lift System and Heat, Ventilation and Air Conditioning (HVAC) System.</li>
                                     <li style="text-align: justify;margin-top: 0;">Performed Planned Preventive Maintenance (PPM) which consist of Prevention Maintenance, Cause Maintenance and Breakdown Maintenance.</li>
                                 </ul>
-                            </div>
-                        </div>
+                            </section>
+                        </section>
 
 
 
+     <!-- Line Separator -->
+     <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C; margin-bottom: 0rem; margin-top: 0rem;">
 
-    <!-- Line Separator -->
-    <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C;">
-
-    <div class="content is-normal mx-5 mt-5">
+     <section id="personal-project-section"  class="content is-normal mx-5 mt-3">
         <p style="font-weight: 900; color: #38969C; font-size: 2rem; margin-bottom: 1rem;">Personal Project</p>
-        <div class="resume-section;margin-top: 0;margin-bottom: 0rem;">
+        
+
             <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">Personal R Package</p>
             <p style="margin-bottom: 0;margin-top: 0rem;">Developing personal R package containing reproducible functions for complex day-to-day operations</p>
 
-            <div class="content is-normal mx-5 mt-5; margin-bottom: 0rem; margin-top: 0rem;">
+            <section class="content is-normal mx-5 mt-3">
                 <ul>
                       <li style="text-align: justify;margin-top: 0;margin-bottom: 0rem;">Continuously compiling complex data manipulation processes into simple, versatile, yet powerful reproducible functions within a single package, which is then pushed to GitHub</li>
                 </ul>
-              </div>
-        </div>
+            </section>
 
-        <div class="resume-section">
+        
             <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem; margin-top: 2rem;">Personal Webpage</p>
             <p style="margin-bottom: 0;">Creating a static webpage using HTML coding.</p>
 
-            <div class="content is-normal mx-5 mt-5margin-top: 0;margin-bottom: 0rem;">
+            <section class="content is-normal mx-5 mt-3">
                 <ul>
                     <li style="text-align: justify; margin-top: 0; margin-bottom: 0;">
                         Developed and regularly updating and maintaining personal webpage featuring professional information and work experience with current information, utilizing HTML coding techniques. The webpage is deployed on GitHub <a href="https://methe2nd.github.io/" target="_blank">https://methe2nd.github.io/</a>.
                     </li>
                     
                 </ul>
-              </div>
-        </div>
-    </div>
+            </section>
+        </section>
+    </section>
 
-    <!-- Line Separator -->
-    <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C;">
+     <!-- Line Separator -->
+     <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C; margin-bottom: 0rem; margin-top: 0rem;">
 
 
 
 
     <!-- Co-Curricular Involvement Section -->
-    <div class="content is-normal mx-5 mt-5">
+    <section id="co-curricular-section"  class="content is-normal mx-5 mt-3">
                     <p style="font-weight: 900; color: #38969C; font-size: 2rem; margin-bottom: 1rem;">Co-Curricular Involvement</p>
-                    <div class="resume-section">
+        
                         <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0; margin-top: 0;">Advance Engineering & Management for Energy Solutions (AEM ENERSOL)</p>
-                    </div>
 
-                    <div class="content is-normal mx-5 mt-5; margin-bottom: 0; margin-top: 0;">
+                    <section class="content is-normal mx-5 mt-3">
                      <ul>
                         <li style="text-align: justify; margin-top: 0;margin-bottom: 0; margin-top: 0;">
                             <strong><span style="font-weight: 900; color: #7030A0; font-size: 1.25rem; margin-bottom: 0; margin-top: 0;">AEM Adventure & Tropical Day</span></strong> – Oil & Gas Industry
                         </li>
-                                           <div class="content is-normal mx-0 mt-0" style="margin-bottom: 0; margin-top: 0;">
-                                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 0; margin-top: 0;">
-                                        <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Lead welfare and prize bureau by ensuring the welfare of the participants and took charge of the lucky draw prizes.</li>
-                             </ul>
-                                </div>                    
+                        <ul class="education-list">
+                                <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Lead welfare and prize bureau by ensuring the welfare of the participants and took charge of the lucky draw prizes.</li>
+                        </ul>          
                  </ul>
-                    </div>
+                </section>
 
 
                     <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0; margin-top: 0;">Petroleum Nasional Berhad (PETRONAS)</p>
 
-                <div class="content is-normal mx-5 mt-5 margin-bottom: 0; margin-top: 0;">
+                    <section class="content is-normal mx-5 mt-3">
                  <ul>
                     <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">
                         <strong><span style="font-weight: 900; color: #7030A0; font-size: 1.25rem; margin-bottom: 0; margin-top: 0;">Upstream Digital & Technology Away Day</span></strong> – Department Team Building Event
                     </li>
-                                <div class="content is-normal mx-0 mt-0" style="margin-bottom: 0; margin-top: 0;">
-                                <ul style="list-style-type: none; padding-left: 0;margin-bottom: 0; margin-top: 0;">
-                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Ensured the safety of the food and water served by the caterer as food & beverage committee.</li>
-                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Managed the flow for Gala Night session as floor manager and produced a 2-minute opening video. </li>
+                        <ul class="education-list">
+                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Ensured the safety of the food and water served by the caterer as food & beverage committee.</li>
+                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Managed the flow for Gala Night session as floor manager and produced a 2-minute opening video. </li>
                                 </ul>
-                            </div>         
+                  
                             
                             <li style="text-align: justify; margin-top: 0;">
                                 <strong><span style="font-weight: 900; color: #7030A0; font-size: 1.25rem;">Upstream Data Appreciation Day</span></strong> – Division Appreciation Event
                             </li>
-                                <div class="content is-normal mx-0 mt-0" style="margin-bottom: 0; margin-top: 0;">
-                                        <ul style="list-style-type: none; padding-left: 0;margin-bottom: 0; margin-top: 0;">
-                                            <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Responsible for the audio and visual throughout the event and produced a 7-minute closing video.</li>
+                                <ul class="education-list">
+                                            <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Responsible for the audio and visual throughout the event and produced a 7-minute closing video.</li>
                                       </ul>
-                                    </div>  
+                    
 
                                     <li style="text-align: justify;margin-bottom: 0; margin-top: 0;">
                                         <strong><span style="font-weight: 900; color: #7030A0; font-size: 1.25rem; ">Clique 2 Connect</span></strong> – Department Team Building Event
                                     </li>
-                                                <div class="content is-normal mx-0 mt-0" style="margin-bottom:0; margin-top: 0">
-                                                <ul style="list-style-type: none; padding-left: 0;margin-bottom: 0; margin-top: 0;">
-                                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Ensured the safe transportation of 30 passengers to and from the event location as the bus captain. </li>
+                                        <ul class="education-list">
+                                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Ensured the safe transportation of 30 passengers to and from the event location as the bus captain. </li>
                                               </ul>
-                                            </div>  
         
-                                        </div>
+                                        </section>
                                         <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0; margin-top: 0;">Universiti Malaya (UM)</p>
                                         
                         
-                                        <div class="content is-normal mx-5 mt-5 margin-bottom: 0; margin-top: 0;">
+                                        <section class="content is-normal mx-5 mt-3">
                                          <ul>
                                             <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">
                                                 <strong><span style="font-weight: 900; color: #7030A0; font-size: 1.25rem; margin-bottom: 0; margin-top: 0;">Angkatan Kejuruteraan Universiti Malaya (AKIUM)</span></strong> – Faculty and Islamic Society
                                             </li>
-                                                        <div class="content is-normal mx-0 mt-0" style="margin-bottom: 0; margin-top: 0;">
-                                                        <ul style="list-style-type: none; padding-left: 0;margin-bottom: 0; margin-top: 0;">
-                                                            <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Led the society as the president and organized several projects for the students in terms of academic, welfare, sport, entrepreneurship, and spiritual aspect.</li>
+                                            <ul class="education-list">
+                                                            <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Led the society as the president and organized several projects for the students in terms of academic, welfare, sport, entrepreneurship, and spiritual aspect.</li>
                                                         </ul>
-                                                    </div>         
+                                                
                                                     
                                                     <li style="text-align: justify; margin-top: 0;">
                                                         <strong><span style="font-weight: 900; color: #7030A0; font-size: 1.25rem;">22nd Grand Asian Challenge Championship (GACC)</span></strong> – International Chess Tournament
                                                     </li>
-                                                        <div class="content is-normal mx-0 mt-0" style="margin-bottom: 0; margin-top: 0;">
-                                                                <ul style="list-style-type: none; padding-left: 0;margin-bottom: 0; margin-top: 0;">
-                                                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Ensured the tournament ran smoothly as tournament executive by assisting arbiter to oversee the matches.</li>
+                                                    <ul class="education-list">
+                                                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Ensured the tournament ran smoothly as tournament executive by assisting arbiter to oversee the matches.</li>
                                                               </ul>
-                                                            </div>  
+                                                  
                         
                                                             <li style="text-align: justify;margin-bottom: 0; margin-top: 0;">
                                                                 <strong><span style="font-weight: 900; color: #7030A0; font-size: 1.25rem; ">Sukan Mahasiswa Universiti Malaya (SUKMUM) 2018</span></strong> – Inter-College Sport Competition
                                                             </li>
-                                                                        <div class="content is-normal mx-0 mt-0" style="margin-bottom:0; margin-top: 0">
-                                                                        <ul style="list-style-type: none; padding-left: 0;margin-bottom: 0; margin-top: 0;">
-                                                                            <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Competed in Kayak 200M Men’s Double Male category.</li>
+                                                            <ul class="education-list">
+                                                                            <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Competed in Kayak 200M Men’s Double Male category.</li>
                                                                       </ul>
-                                                                    </div>  
+                                                                   
 
                                                                     <li style="text-align: justify;margin-bottom: 0; margin-top: 0;">
                                                                         <strong><span style="font-weight: 900; color: #7030A0; font-size: 1.25rem; ">UMEC-NESCAFE Entrepreneur Program</span></strong> – Entrepreneurship Program
-                                                                    </li>
-                                                                                <div class="content is-normal mx-0 mt-0" style="margin-bottom:0; margin-top: 0">
-                                                                                <ul style="list-style-type: none; padding-left: 0;margin-bottom: 0; margin-top: 0;">
-                                                                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">&#9702; Operated a Nescafe Hub as a bartender/ cashier and ensured the sustainability of the business.</li>
+                                                                        <ul class="education-list">
+                                                                    
+                                                                                    <li style="text-align: justify; margin-bottom: 0; margin-top: 0;">Operated a Nescafe Hub as a bartender/ cashier and ensured the sustainability of the business.</li>
                                                                               </ul>
-                                                                            </div>  
+                                                                            </ul>
+                                                                         
+            </section>
+        </section>
 
 
-             </ul>
-                </div>
 
-
-            </div>
-
-
-    <!-- Line Separator -->
-    <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C;">
+     <!-- Line Separator -->
+     <hr class="mx-5" style="border: none; height: 1px; background-color: #38969C; margin-bottom: 0rem; margin-top: 0rem;">
 
 
             <!-- References Section -->
-            <div class="content is-normal mx-5 mt-5">
+            <section id="reference-section"  class="content is-normal mx-5 mt-3">
                 <p style="font-weight: 900; color: #38969C; font-size: 2rem;  margin-top: 0; margin-bottom: 1rem;">Reference</p>
-                <div class="resume-section;margin-top: 0; margin-bottom: 0rem;">
-                    <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem;  margin-top: 0;margin-bottom: 0rem;">Petroleum Nasional Berhad (PETRONAS)</p>
+                                  <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem;  margin-top: 0;margin-bottom: 0rem;">Petroleum Nasional Berhad (PETRONAS)</p>
                     <strong><span style="font-weight: 900; color: #7030A0; font-size: 1.25rem; margin-bottom: 0; margin-top: 0;">Nur Ismawati Binti Idris</span></strong> – Manager, Subsurface - Field Development, Upstream Digital & Technology
                     <p><a href="mailto:nurismawati_idris@petronas.com.my">nurismawati_idris@petronas.com.my</a></p>
                     <p style="text-align: justify;font-weight: 900; color: #000000; font-size: 1.25rem; margin-bottom: 0rem;">Advance Engineering & Management for Energy Solutions (AEM ENERSOL)</p>
                     <strong><span style="font-weight: 900; color: #7030A0; font-size: 1.25rem; margin-bottom: 0; margin-top: 0;">Redzuan Rahman</span></strong> – Head, Petroleum Engineering & Data Solutions
                     <p><a href="mailto:redzuan.rahman@aemenersol.com">redzuan.rahman@aemenersol.com</a></p>
-                      </div>
-                </div>
-   
+
+            </section>
         </section>
     </main>
     <footer>
